@@ -191,52 +191,28 @@
                 </div>
             </section>
             <section>
-                <h1 class="page-header mobile-detail-page-header">Bosch – 0 242 140 523 Свеча зажигания</h1>
+                <h1 class="page-header mobile-detail-page-header">Запрошенный товар не найден</h1>
                 <div class="product-info-container">
-                    <img class="product-preview-image" src="/photos/spark_plug.jpg">
+                    <img class="product-preview-image" src="/photos/audi-silhouette.jpg">
                     <div class="common-characteristics">
                         <h4 class="characteristics-label">Характеристики</h4>
-                        <ul>
-                            <li class="characteristics-list-item">
+                        <ul class="common-characteristics-list">
+                            <li class="characteristics-list-item removed">
                                 <p class="characteristics-porperty-name">Высота [мм]</p>
                                 <p class="characteristics-porperty-value">79</p>
-                            </li>
-                            <li class="characteristics-list-item">
-                                <p class="characteristics-porperty-name">Размер резьбы</p>
-                                <p class="characteristics-porperty-value">3/4" - 16 UNF</p>
-                            </li>
+                            </li>                            
                         </ul>
-                        <button class="view-full-characteristics-button">Подробнее</button>
+                        <button class="view-full-characteristics-button" onclick="scrollToTarget();">Подробнее</button>
                     </div>
                     <div class="full-characteristics">
-                        <h3 class="full-characteristics-header">Размеры/характеристики</h3>
-                        <ul>
-                            <li class="characteristics-list-item">
-                                <p class="characteristics-porperty-name">Размер резьбы</p>
-                                <p class="characteristics-porperty-value">3/4" - 16 UNF</p>
-                            </li>
-                            <li class="characteristics-list-item">
-                                <p class="characteristics-porperty-name">Размер резьбы</p>
-                                <p class="characteristics-porperty-value">3/4" - 16 UNF</p>
-                            </li>
-                        </ul>
-                        <div class="characteristics-divider"></div>
-                        <h3 class="full-characteristics-header">Размеры/характеристики</h3>
-                        <ul>
-                            <li class="characteristics-list-item">
-                                <p class="characteristics-porperty-name">Размер резьбы</p>
-                                <p class="characteristics-porperty-value">3/4" - 16 UNF</p>
-                            </li>
-                            <li class="characteristics-list-item">
-                                <p class="characteristics-porperty-name">Размер резьбы</p>
-                                <p class="characteristics-porperty-value">3/4" - 16 UNF</p>
-                            </li>
-                        </ul>
+                        <h3 class="full-characteristics-header removed">Размеры/характеристики</h3>
+                        <ul class="full-characteristics-list removed"></ul>
+                        <div class="characteristics-divider removed"></div>
                     </div>
                     <div class="buy-product-section" id="buy-section-desktop">
-                        <p class="catalog-product-coast">520 ₽</p>
-                        <p class="catalog-product-availability">В наличии: 400 шт.</p>
-                        <p class="catalog-product-delivery">Доставка: 1 дн.</p>
+                        <p class="catalog-product-coast catalog-detail-coast">0 ₽</p>
+                        <p class="catalog-product-availability catalog-detail-availability">В наличии: 0 шт.</p>
+                        <p class="catalog-product-delivery catalog-detail-delivery">Доставка: 0 дн.</p>
                         <div class="buy-buttons-container">
                             <button class="buy-button-cart" onclick="addToCart(this);synchronizeBuySections(this, 1);">В корзину</button>
                             <button class="buy-button-onclick">Купить</button>
@@ -250,9 +226,9 @@
                     </div>
                 </div>
                 <div class="buy-product-section buy-product-section-mobile" id="buy-section-mobile">
-                    <p class="catalog-product-coast">520 ₽</p>
-                    <p class="catalog-product-availability">В наличии: 400 шт.</p>
-                    <p class="catalog-product-delivery">Доставка: 1 дн.</p>
+                    <p class="catalog-product-coast catalog-detail-coast">0 ₽</p>
+                    <p class="catalog-product-availability catalog-detail-availability">В наличии: 0 шт.</p>
+                    <p class="catalog-product-delivery catalog-detail-delivery">Доставка: 0 дн.</p>
                     <div class="buy-buttons-container">
                         <button class="buy-button-cart" onclick="addToCart(this);synchronizeBuySections(this, 1);">В корзину</button>
                         <button class="buy-button-onclick">Купить</button>
@@ -270,7 +246,7 @@
             <section class="interest-products">
                 <h3 class="another-categories-label">Вас может заинтересовать</h3>
                 <div class="catalog-product-card removed special-product-card-for-cloning" detail-code="">
-                    <div class="product-card-link" onclick="openProduct(this);">
+                    <div class="product-card-link" onclick="openDetailPage(this.parentElement);">
                         <img class="catalog-product-card-image" src="/photos/s-l1600.jpg">
                         <p class="catalog-product-coast">520 ₽</p>
                         <p class="catalog-product-name">VAG - 06J 115 403 Q<br>Маслянный фильтр</p>
@@ -367,6 +343,9 @@
     <script src="/catalog/scripts/catalog-content.js"></script>
     <script src="/catalog/scripts/product-to-card.js"></script>
     <script src="/details/scripts/buy-buttons-synchronize.js"></script>
+    <script src="/details/scripts/detail-content.js"></script>
+    <script src="/scripts/open-detail-page.js"></script>
+    <script src="/details/scripts/scroll-to-full-characteristics.js"></script>
     
 </body>
 

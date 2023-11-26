@@ -21,7 +21,7 @@ function Product(detailCode, photoUrl, coast, displayCode, categoryName, inStock
 
 const productsList = [
     new Product("0092S30010", "/catalog/photos/Bosch-0092S30010.jpg", 6800, "Bosch – 009 2S3 001 0", "Аккамулятор", 12, 1, 5, ["accumulators", "winter"]),
-    new Product("575311068", "/photos/varta_battery.png", 8200, "Varta – 575 311 068", "Аккамулятор", 3, 5, 5, ["accumulators", "winter"]),
+    new Product("560301052", "/photos/varta_battery.png", 8200, "Varta – 560 301 052", "Аккамулятор", 3, 5, 5, ["accumulators", "winter"]),
     new Product("AGM12-18", "/catalog/photos/Exide AGM12-18.jpg", 6500, "Exide AGM12-18", "Аккамулятор", 5, 2, 3, ["accumulators", "winter"]),
     new Product("EL752", "/catalog/photos/Exide EL752.jpg", 16100, "Exide EL752", "Аккамулятор", 19, 1, 5, ["accumulators", "winter"]),
     new Product("78181", "/catalog/photos/X'trike X-132.jpg", 6450, "X'trike – X-132 78181", "Диски", 20, 2, 5, ["disks"]),
@@ -42,7 +42,7 @@ const productsList = [
     new Product("4K0698151", "/photos/front_brake_pads.jpg", 17500, "VAG – 4K0698151", "Тормозные колодки передние", 14, 3, 5, ["brakes"]),
     new Product("B000750M1", "/photos/brake_fluid.jpg", 650, "VAG - B 000 750 M1", "Тормозная жидкость DOT4", 16, 2, 5, ["brakes"]),
     new Product("A07396S", "/catalog/photos/AWS A07396S.jpg", 200, "AVS AVK-400 A07396S", "Стеклоомыватель", 41, 1, 5, ["windshieldWashers", "winter", "interestProducts"]),
-    new Product("Ln1314", "/catalog/photos/LAVR Ln1310.jpg", 374, "LAVR Ln1314", "Стеклоомыватель", 2, 1, 5, ["windshieldWashers", "winter"]),
+    new Product("LN1314", "/catalog/photos/LAVR Ln1310.jpg", 374, "LAVR Ln1314", "Стеклоомыватель", 2, 1, 5, ["windshieldWashers", "winter"]),
 ];
 
 const categoryNamesDict = {

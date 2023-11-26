@@ -7,5 +7,9 @@ window.onload = function() {
     increaseCart();
     decreaseCart();
 
+    var urlParams = new URLSearchParams(window.location.search);
+    var code = urlParams.get('detailCode');
+
+    loadDetailCharacteristics(code);
     loadInterestProducts();
 }
