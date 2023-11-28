@@ -98,7 +98,6 @@ function prepareForButOnclick(detailCode) {
     contentInfo[detailCode] = null;
     contentInfo[detailCode] = prod;
 
-    // contentInfo[detailCode].count += 1;
     contentInfo[detailCode].selected = true;
 
     var jsonString = JSON.stringify(contentInfo);
