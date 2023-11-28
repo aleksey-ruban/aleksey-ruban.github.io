@@ -20,10 +20,10 @@ function Product(detailCode, photoUrl, coast, displayCode, categoryName, inStock
 }
 
 const productsList = [
-    new Product("0092S30010", "/catalog/photos/Bosch-0092S30010.jpg", 6800, "Bosch – 009 2S3 001 0", "Аккамулятор", 12, 1, 5, ["accumulators", "winter"]),
-    new Product("560301052", "/photos/varta_battery.png", 8200, "Varta – 560 301 052", "Аккамулятор", 3, 5, 5, ["accumulators", "winter"]),
-    new Product("AGM12-18", "/catalog/photos/Exide AGM12-18.jpg", 6500, "Exide AGM12-18", "Аккамулятор", 5, 2, 3, ["accumulators", "winter"]),
-    new Product("EL752", "/catalog/photos/Exide EL752.jpg", 16100, "Exide EL752", "Аккамулятор", 19, 1, 4, ["accumulators", "winter"]),
+    new Product("0092S30010", "/catalog/photos/Bosch-0092S30010.jpg", 6800, "Bosch – 009 2S3 001 0", "Аккумулятор", 12, 1, 5, ["accumulators", "winter"]),
+    new Product("560301052", "/photos/varta_battery.png", 8200, "Varta – 560 301 052", "Аккумулятор", 3, 5, 5, ["accumulators", "winter"]),
+    new Product("AGM12-18", "/catalog/photos/Exide AGM12-18.jpg", 6500, "Exide AGM12-18", "Аккумулятор", 5, 2, 3, ["accumulators", "winter"]),
+    new Product("EL752", "/catalog/photos/Exide EL752.jpg", 16100, "Exide EL752", "Аккумулятор", 19, 1, 4, ["accumulators", "winter"]),
     new Product("78181", "/catalog/photos/X'trike X-132.jpg", 6450, "X'trike – X-132 78181", "Диски", 20, 2, 4, ["disks"]),
     new Product("WMM579X1775A45X24", "/catalog/photos/Advanti WLR5.jpg", 16500, "Advanti – WLR5 MM579", "Диски", 32, 1, 5, ["disks"]),
     new Product("WSQ79GX1775A45X05", "/catalog/photos/Konig Impression SQ79G.jpg", 16500, "Konig Impression – SQ79G", "Диски", 8, 2, 4, ["disks"]),
