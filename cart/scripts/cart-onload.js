@@ -10,11 +10,9 @@ window.onload = function() {
     var detailCode = urlParams.get('detailCode');
 
     if (detailCode) {
-        prepareForButOnclick(detailCode);
-        loadCartContent();
-    } else {
-        loadCartContent();
+        prepareForButOnclick(detailCode);   
     }
 
+    loadCartContent();
     
 }

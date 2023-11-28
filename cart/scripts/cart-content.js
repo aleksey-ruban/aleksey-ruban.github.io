@@ -89,6 +89,10 @@ function prepareForButOnclick(detailCode) {
     var storedString = localStorage.getItem('cartContentInfo');
     if (!storedString) { generateCartContentInfo(); }
     var contentInfo = JSON.parse(storedString);
+    
+    for (var i in contentInfo) {
+        contentInfo[i].selected = false;
+    }
 
     var prod = contentInfo[detailCode];
     contentInfo[detailCode] = null;

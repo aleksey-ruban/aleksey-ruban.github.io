@@ -11,4 +11,8 @@ window.onload = function() {
 
     loadDetailCharacteristics(code);
     loadInterestProducts();
+
+    var title = document.querySelector("title");
+    var prod = productsList.find(item => item.detailCode == code);
+    title.innerText = prod.displayCode + " " + prod.categoryName
 }

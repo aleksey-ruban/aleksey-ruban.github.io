@@ -1,6 +1,6 @@
 "use strict";
 
-function addToCart(button) {
+function addToCart(button, flag = true) {
     let card = button.parentElement.parentElement;
     
     let buttonsContainer = card.querySelector(".buy-buttons-container");
@@ -9,10 +9,12 @@ function addToCart(button) {
     buttonsContainer.classList.add("removed");
     adjustNumber.classList.remove("removed");
 
-    increaseCart(button.getAttribute("detail-code"));
+    if (flag) {
+        increaseCart(button.getAttribute("detail-code"));
+    }
 }
 
-function removeFromCart(button) {
+function removeFromCart(button, flag = true) {
     let card = button.parentElement.parentElement;
     
     let buttonsContainer = card.querySelector(".buy-buttons-container");
@@ -22,26 +24,30 @@ function removeFromCart(button) {
     adjustNumber.classList.add("removed");
 }
 
-function plusButton(button) {
+function plusButton(button, flag = true) {
     let card = button.parentElement.parentElement;
 
     let spanNumber = card.querySelector(".adjust-products-number span");
     spanNumber.innerText = Number(spanNumber.innerText) + 1;
 
-    increaseCart(button.getAttribute("detail-code"));
+    if (flag) {
+        increaseCart(button.getAttribute("detail-code"));
+    }
 }
 
-function minusButton(button) {
+function minusButton(button, flag = true) {
     let card = button.parentElement.parentElement;
 
     let spanNumber = card.querySelector(".adjust-products-number span");
     if (Number(spanNumber.innerText) == 1) {
-        removeFromCart(button);
+        removeFromCart(button, flag);
     } else {
         spanNumber.innerText = Number(spanNumber.innerText) - 1;
     }
 
-    decreaseCart(button.getAttribute("detail-code"));
+    if (flag) {
+        decreaseCart(button.getAttribute("detail-code"));
+    }
 }
 
 function buyOnClick(button) {

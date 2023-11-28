@@ -6,25 +6,25 @@ function synchronizeBuySections(button, operation) {
         let section = document.getElementById("buy-section-mobile");
         if (operation == 1) {
             let anotherButton = section.querySelector(".buy-button-cart");
-            addToCart(anotherButton);
+            addToCart(anotherButton, false);
         } else if (operation == 2) {
             let anotherButton = section.querySelector(".button-minus");
-            minusButton(anotherButton);
+            minusButton(anotherButton, false);
         } else if (operation == 3) {
             let anotherButton = section.querySelector(".button-plus");
-            plusButton(anotherButton);
+            plusButton(anotherButton, false);
         }
     } else if (id == "buy-section-mobile") {
         let section = document.getElementById("buy-section-desktop");
         if (operation == 1) {
             let anotherButton = section.querySelector(".buy-button-cart");
-            addToCart(anotherButton);
+            addToCart(anotherButton, false);
         } else if (operation == 2) {
             let anotherButton = section.querySelector(".button-minus");
-            minusButton(anotherButton);
+            minusButton(anotherButton, false);
         } else if (operation == 3) {
             let anotherButton = section.querySelector(".button-plus");
-            plusButton(anotherButton);
+            plusButton(anotherButton, false);
         }
     }
 }
