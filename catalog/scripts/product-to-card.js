@@ -43,3 +43,10 @@ function minusButton(button) {
 
     decreaseCart(button.getAttribute("detail-code"));
 }
+
+function buyOnClick(button) {
+    increaseCart(button.getAttribute("detail-code"));
+    var url = "/cart/cart.html";
+    var queryString = '?detailCode=' + encodeURIComponent(button.getAttribute("detail-code"));
+    window.location.href = url + queryString;
+}

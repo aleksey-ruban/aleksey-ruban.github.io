@@ -85,6 +85,22 @@ function decreaseCart(detailCode) {
     }
 }
 
+function prepareForButOnclick(detailCode) {
+    var storedString = localStorage.getItem('cartContentInfo');
+    if (!storedString) { generateCartContentInfo(); }
+    var contentInfo = JSON.parse(storedString);
+
+    var prod = contentInfo[detailCode];
+    contentInfo[detailCode] = null;
+    contentInfo[detailCode] = prod;
+
+    contentInfo[detailCode].count += 1;
+    contentInfo[detailCode].selected = true;
+
+    var jsonString = JSON.stringify(contentInfo);
+    localStorage.setItem('cartContentInfo', jsonString);
+}
+
 
 function loadCartContent() {
     var storedString = localStorage.getItem('cartContentInfo');
@@ -113,8 +129,10 @@ function loadCartContent() {
 
             var checkbox = cardClone.querySelector(".custom-checkbox input");
             var image = cardClone.querySelector(".cart-image-container img");
+            var imageContainer = cardClone.querySelector(".cart-image-container");
             var nameLabel = cardClone.querySelector(".cart-products-main-info h4");
             var categoryLabel = cardClone.querySelector(".cart-products-main-info p");
+            var mainInfo = cardClone.querySelector(".cart-products-main-info");
             var deliveryLabel = cardClone.querySelector(".cart-products-abled-delivery");
             var inStockLabel = cardClone.querySelector(".cart-products-abled-instock");
             var countLabel = cardClone.querySelector(".adjust-products-number span");
@@ -122,10 +140,13 @@ function loadCartContent() {
 
             lastImg = image;
 
+
             var plusBtn = cardClone.querySelector(".button-plus");
             var minusBtn = cardClone.querySelector(".button-minus");
             var deleteBtn = cardClone.querySelector(".cart-products-delete-button");
 
+            imageContainer.setAttribute("detail-code", code);
+            mainInfo.setAttribute("detail-code", code);
             plusBtn.setAttribute("detail-code", code);
             minusBtn.setAttribute("detail-code", code);
             deleteBtn.setAttribute("detail-code", code);

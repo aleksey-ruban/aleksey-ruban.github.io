@@ -6,5 +6,15 @@ window.onload = function() {
     generateCartContentInfo();
     getCartCount();
 
-    loadCartContent();
+    var urlParams = new URLSearchParams(window.location.search);
+    var detailCode = urlParams.get('detailCode');
+
+    if (detailCode) {
+        prepareForButOnclick(detailCode);
+        loadCartContent();
+    } else {
+        loadCartContent();
+    }
+
+    
 }

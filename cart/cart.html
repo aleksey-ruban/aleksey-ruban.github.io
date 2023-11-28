@@ -220,10 +220,10 @@
                                 <input type="checkbox" onchange="selectProduct(this);">
                                 <span class="checkmark"></span>
                             </label>
-                            <div class="cart-image-container">
+                            <div class="cart-image-container" onclick="openDetailPage(this);">
                                 <img src="/photos/oil.jpg">
                             </div>
-                            <div class="cart-products-main-info">
+                            <div class="cart-products-main-info" onclick="openDetailPage(this);">
                                 <h4>G-Energy 5W-40</h4>
                                 <p>Масло моторное</p>
                             </div>
@@ -245,15 +245,15 @@
                         <h4>Ваш заказ</h4>
                         <div class="checkout-order-products-coast">
                             <p>Стоимость товаров</p>
-                            <p class="checkout-order-products-coast-label">34 000 ₽</p>
+                            <p class="checkout-order-products-coast-label">0 ₽</p>
                         </div>
                         <div class="checkout-order-discount">
                             <p>Персональная скидка</p>
-                            <p class="checkout-order-discount-label">200 ₽</p>
+                            <p class="checkout-order-discount-label">0 ₽</p>
                         </div>
                         <div class="checkout-order-total">
                             <h5>Итого</h5>
-                            <h5 class="checkout-order-total-label">60 000 ₽</h5>
+                            <h5 class="checkout-order-total-label">0 ₽</h5>
                         </div>
                         <button class="checkout-order-next-button">Продолжить</button>
                     </div>
@@ -329,7 +329,7 @@
     <script src="/details/scripts/open-category-catalog.js"></script>
     <script src="/catalog/scripts/catalog-content.js"></script>
     <script src="/cart/scripts/cart-content.js"></script>
-    <!-- <script src="/catalog/scripts/product-to-card.js"></script> -->
+    <script src="/scripts/open-detail-page.js"></script>
     <script src="/cart/scripts/cart-edit-content.js"></script>
 </body>
 
