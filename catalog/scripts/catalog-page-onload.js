@@ -62,8 +62,7 @@ window.onload = function () {
     unselectBrand();
     setupBrandSearched();
 
-    cartAccumulator = new CartAccumulator(6);
-    increaseCart();
-    decreaseCart();
+    generateCartContentInfo();
+    getCartCount();
 }
 

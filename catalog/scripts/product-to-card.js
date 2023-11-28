@@ -9,7 +9,7 @@ function addToCart(button) {
     buttonsContainer.classList.add("removed");
     adjustNumber.classList.remove("removed");
 
-    increaseCart();
+    increaseCart(button.getAttribute("detail-code"));
 }
 
 function removeFromCart(button) {
@@ -28,7 +28,7 @@ function plusButton(button) {
     let spanNumber = card.querySelector(".adjust-products-number span");
     spanNumber.innerText = Number(spanNumber.innerText) + 1;
 
-    increaseCart();
+    increaseCart(button.getAttribute("detail-code"));
 }
 
 function minusButton(button) {
@@ -41,5 +41,5 @@ function minusButton(button) {
         spanNumber.innerText = Number(spanNumber.innerText) - 1;
     }
 
-    decreaseCart();
+    decreaseCart(button.getAttribute("detail-code"));
 }

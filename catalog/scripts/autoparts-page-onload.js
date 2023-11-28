@@ -7,9 +7,8 @@ const allowedEquipment = ["(8T3)", "Cabriolet (8F7)", "Sportback (8TA)", "(F53, 
 window.onload = function() {
     hideCategories();
 
-    cartAccumulator = new CartAccumulator(6);
-    increaseCart();
-    decreaseCart();
+    generateCartContentInfo();
+    getCartCount();
 
     var urlParams = new URLSearchParams(window.location.search);
     var category = urlParams.get('category');

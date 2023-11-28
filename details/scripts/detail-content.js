@@ -2,24 +2,6 @@
 
 function ProductCharacteristics(detailCode, commonCharacteristics, allCharacteristics) {
     this.detailCode = detailCode;
-    this.commonCharacteristics = {
-        "Высота [мм]" : "79",
-        "Высота [мм]" : "79",
-    };
-    this.allCharacteristics = {
-        "Применяемость" : {
-            "Audi" : ["A5", "Q7"],
-            "Skoda" : ["Octavia", "Superb"]
-        },
-        "Оригинальные номера" : {
-            "VAG" : ["141746534182"],
-        },
-        "Производитель" : {
-            "Производитель" : "VAG",
-            "Индекс" : "24675134",
-            "Город" : "Wenzhou",
-        },
-    }
     this.commonCharacteristics = commonCharacteristics;
     this.allCharacteristics = allCharacteristics;
 }
@@ -158,6 +140,18 @@ function loadDetailCharacteristics(detailCode) {
         propValue.innerText = productCharacteristics.commonCharacteristics[key];
 
         commonCharacteristicsList.appendChild(characteristicsItemClone);
+    }
+
+    var addBtn = document.getElementsByClassName("buy-button-cart");
+    var plusBtn = document.getElementsByClassName("button-plus");
+    var minusBtn = document.getElementsByClassName("button-minus");
+    var buyBtn = document.getElementsByClassName("buy-button-onclick");
+
+    for (var i = 0; i < addBtn.length; i++) {
+        addBtn[i].setAttribute("detail-code", detailCode);
+        plusBtn[i].setAttribute("detail-code", detailCode);
+        minusBtn[i].setAttribute("detail-code", detailCode);
+        buyBtn[i].setAttribute("detail-code", detailCode);
     }
 
     var curKey = 0;

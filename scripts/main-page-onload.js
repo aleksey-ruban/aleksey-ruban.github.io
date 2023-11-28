@@ -17,7 +17,6 @@ function enableAutoBrands() {
 window.onload = function() {
     enableAutoBrands();
     
-    cartAccumulator = new CartAccumulator(6);
-    increaseCart();
-    decreaseCart();
+    generateCartContentInfo();
+    getCartCount();
 }

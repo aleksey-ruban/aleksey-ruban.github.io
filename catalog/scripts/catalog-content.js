@@ -170,6 +170,16 @@ function loadData(category, search, brand, model, equipment) {
             }
         }
 
+        var addBtn = clone.querySelector(".buy-button-cart");
+        var plusBtn = clone.querySelector(".button-plus");
+        var minusBtn = clone.querySelector(".button-minus");
+        var buyBtn = clone.querySelector(".buy-button-onclick");
+
+        addBtn.setAttribute("detail-code", i.detailCode);
+        plusBtn.setAttribute("detail-code", i.detailCode);
+        minusBtn.setAttribute("detail-code", i.detailCode);
+        buyBtn.setAttribute("detail-code", i.detailCode);
+
         components.push(clone);
     }
 
@@ -216,6 +226,16 @@ function loadInterestProducts() {
                 stars[ind].classList.add("grayscaled-star");
             }
         }
+
+        var addBtn = clone.querySelector(".buy-button-cart");
+        var plusBtn = clone.querySelector(".button-plus");
+        var minusBtn = clone.querySelector(".button-minus");
+        var buyBtn = clone.querySelector(".buy-button-onclick");
+
+        addBtn.setAttribute("detail-code", i.detailCode);
+        plusBtn.setAttribute("detail-code", i.detailCode);
+        minusBtn.setAttribute("detail-code", i.detailCode);
+        buyBtn.setAttribute("detail-code", i.detailCode);
 
         components.push(clone);
     }
