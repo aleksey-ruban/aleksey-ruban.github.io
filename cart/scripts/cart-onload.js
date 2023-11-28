@@ -3,8 +3,7 @@
 window.onload = function() {
     hideCategories();
 
-    generateCartContentInfo();
-    getCartCount();
+    
 
     var urlParams = new URLSearchParams(window.location.search);
     var detailCode = urlParams.get('detailCode');
@@ -12,6 +11,9 @@ window.onload = function() {
     if (detailCode) {
         prepareForButOnclick(detailCode);   
     }
+
+    generateCartContentInfo();
+    getCartCount();
 
     loadCartContent();
     
