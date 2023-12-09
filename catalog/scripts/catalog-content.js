@@ -21,7 +21,7 @@ function Product(detailCode, photoUrl, coast, displayCode, categoryName, inStock
 
 const productsList = [
     new Product("0092S30010", "/catalog/photos/Bosch-0092S30010.jpg", 6800, "Bosch – 009 2S3 001 0", "Аккумулятор", 12, 1, 5, ["accumulators", "winter"]),
-    new Product("560301052", "/photos/varta_battery.png", 8200, "Varta – 560 301 052", "Аккумулятор", 3, 5, 5, ["accumulators", "winter"]),
+    new Product("560301052", "/catalog/photos/varta_battary.png", 8200, "Varta – 560 301 052", "Аккумулятор", 3, 5, 5, ["accumulators", "winter"]),
     new Product("AGM12-18", "/catalog/photos/Exide AGM12-18.jpg", 6500, "Exide AGM12-18", "Аккумулятор", 5, 2, 3, ["accumulators", "winter"]),
     new Product("EL752", "/catalog/photos/Exide EL752.jpg", 16100, "Exide EL752", "Аккумулятор", 19, 1, 4, ["accumulators", "winter"]),
     new Product("78181", "/catalog/photos/X'trike X-132.jpg", 6450, "X'trike – X-132 78181", "Диски", 20, 2, 4, ["disks"]),

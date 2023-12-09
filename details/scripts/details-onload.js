@@ -14,5 +14,10 @@ window.onload = function() {
 
     var title = document.querySelector("title");
     var prod = productsList.find(item => item.detailCode == code);
-    title.innerText = prod.displayCode + " " + prod.categoryName
+
+    if (prod) {
+        title.innerText = prod?.displayCode + " " + prod?.categoryName;
+    } else {
+        title.innerText = "Товар не найден";
+    }
 }

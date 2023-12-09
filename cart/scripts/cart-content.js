@@ -49,19 +49,21 @@ function increaseCart(detailCode) {
     if (!storedString) { generateCartContentInfo(); }
     var contentInfo = JSON.parse(storedString);
 
-    contentInfo[detailCode].count += 1;
-    contentInfo[detailCode].selected = true;
-    var count = 0;
-    for (var i in contentInfo) {
-        count += contentInfo[i].count;
-    }
+    if (contentInfo[detailCode]) {
+        contentInfo[detailCode].count += 1;
+        contentInfo[detailCode].selected = true;
+        var count = 0;
+        for (var i in contentInfo) {
+            count += contentInfo[i].count;
+        }
 
-    var jsonString = JSON.stringify(contentInfo);
-    localStorage.setItem('cartContentInfo', jsonString);
+        var jsonString = JSON.stringify(contentInfo);
+        localStorage.setItem('cartContentInfo', jsonString);
 
-    let cartCounters = document.getElementsByClassName("cart-link-counter");
-    for (var i = 0; i < cartCounters.length; i++) {
-        cartCounters[i].innerText = count;
+        let cartCounters = document.getElementsByClassName("cart-link-counter");
+        for (var i = 0; i < cartCounters.length; i++) {
+            cartCounters[i].innerText = count;
+        }
     }
 }
 
@@ -70,18 +72,20 @@ function decreaseCart(detailCode) {
     if (!storedString) { generateCartContentInfo(); }
     var contentInfo = JSON.parse(storedString);
 
-    contentInfo[detailCode].count = contentInfo[detailCode].count == 0 ? 0 : contentInfo[detailCode].count - 1;
-    var count = 0;
-    for (var i in contentInfo) {
-        count += contentInfo[i].count;
-    }
+    if (contentInfo[detailCode]) {
+        contentInfo[detailCode].count = contentInfo[detailCode].count == 0 ? 0 : contentInfo[detailCode].count - 1;
+        var count = 0;
+        for (var i in contentInfo) {
+            count += contentInfo[i].count;
+        }
 
-    var jsonString = JSON.stringify(contentInfo);
-    localStorage.setItem('cartContentInfo', jsonString);
+        var jsonString = JSON.stringify(contentInfo);
+        localStorage.setItem('cartContentInfo', jsonString);
 
-    let cartCounters = document.getElementsByClassName("cart-link-counter");
-    for (var i = 0; i < cartCounters.length; i++) {
-        cartCounters[i].innerText = count;
+        let cartCounters = document.getElementsByClassName("cart-link-counter");
+        for (var i = 0; i < cartCounters.length; i++) {
+            cartCounters[i].innerText = count;
+        }
     }
 }
 
@@ -89,19 +93,21 @@ function prepareForButOnclick(detailCode) {
     var storedString = localStorage.getItem('cartContentInfo');
     if (!storedString) { generateCartContentInfo(); }
     var contentInfo = JSON.parse(storedString);
-    
-    for (var i in contentInfo) {
-        contentInfo[i].selected = false;
+
+    if (contentInfo[detailCode]) {
+        for (var i in contentInfo) {
+            contentInfo[i].selected = false;
+        }
+
+        var prod = contentInfo[detailCode];
+        contentInfo[detailCode] = null;
+        contentInfo[detailCode] = prod;
+
+        contentInfo[detailCode].selected = true;
+
+        var jsonString = JSON.stringify(contentInfo);
+        localStorage.setItem('cartContentInfo', jsonString);
     }
-
-    var prod = contentInfo[detailCode];
-    contentInfo[detailCode] = null;
-    contentInfo[detailCode] = prod;
-
-    contentInfo[detailCode].selected = true;
-
-    var jsonString = JSON.stringify(contentInfo);
-    localStorage.setItem('cartContentInfo', jsonString);
 }
 
 
@@ -169,15 +175,15 @@ function loadCartContent() {
             inStockLabel.innerText = "Осталось " + product.inStock + " шт.";
             countLabel.innerText = contentInfo[code].count;
             coastLabel.innerText = addSpacesFromEnd(String(product.coast * contentInfo[code].count), 3) + " ₽";
-            
+
             components.push(cardClone);
         }
 
-        
+
     }
 
     if (lastImg) {
-        lastImg.onload = function() {
+        lastImg.onload = function () {
             productGrid.innerHTML = "";
             for (var cardClone of components) {
                 productGrid.appendChild(cardClone);
