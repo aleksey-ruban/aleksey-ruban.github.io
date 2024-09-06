@@ -35,8 +35,8 @@ function closeModel() {
     let modelsSection = document.querySelector(".auto-models-section");
     let modelsSelectionDone = document.querySelector(".auto-model-selected");
 
-    modelsSection.classList.remove("section-selection-done");
-    modelsSection.classList.add("section-selection-done");
+    // modelsSection.classList.remove("section-selection-done");
+    // modelsSection.classList.add("section-selection-done");
     modelsSelectionDone.classList.remove("hidden");
 }
 

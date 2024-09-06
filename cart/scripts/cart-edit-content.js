@@ -28,6 +28,8 @@ function deleteProduct(button) {
     var count = 0;
     for (var i in contentInfo) {
         count += contentInfo[i].count;
+        contentInfo[i].count = 0;
+        contentInfo[i].selected = false;
     }
 
     var jsonString = JSON.stringify(contentInfo);
