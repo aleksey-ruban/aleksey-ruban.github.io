@@ -40,11 +40,7 @@ function getCartCount() {
 
     let cartCounters = document.getElementsByClassName("cart-link-counter");
     for (var i = 0; i < cartCounters.length; i++) {
-        if (count > 4) {
-            cartCounters[i].innerText = count ** 2;    
-        } else {
-            cartCounters[i].innerText = count;
-        }
+        cartCounters[i].innerText = count;
     }
 }
 

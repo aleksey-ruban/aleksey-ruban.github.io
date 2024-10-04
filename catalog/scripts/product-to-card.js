@@ -42,7 +42,7 @@ function minusButton(button, flag = true) {
     if (Number(spanNumber.innerText) == 1) {
         removeFromCart(button, flag);
     } else {
-        // spanNumber.innerText = Number(spanNumber.innerText) - 1;
+        spanNumber.innerText = Number(spanNumber.innerText) - 1;
     }
 
     if (flag) {
