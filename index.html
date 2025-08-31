@@ -1,442 +1,601 @@
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllSpares – Автозапчасти</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/favicons/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
-    <meta name="theme-color" content="rgb(43, 43, 47)">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <link href="/style.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=0.68, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Резюме">
+    <title>Алексей Рубан - Резюме</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #000000;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .pdf-container {
+            /* width: 100vw; */
+            height: 100vh;
+            position: relative;
+            margin: auto;
+        }
+
+        .pdf-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            z-index: -1;
+        }
+
+        .pdf-embed {
+            width: 100%;
+            height: 100%;
+            border: none;
+            -webkit-overflow-scrolling: touch;
+            overflow: hidden;
+        }
+
+        /* iOS Safari PDF оптимизации */
+        @supports (-webkit-touch-callout: none) {
+            .pdf-embed {
+                width: 100%;
+                height: 100vh;
+                border: none;
+                -webkit-overflow-scrolling: touch;
+                overflow: auto;
+                transform: none;
+                transform-origin: top left;
+                object-fit: none;
+                object-position: top left;
+                min-width: 100%;
+                max-width: none;
+                min-height: 100vh;
+                max-height: none;
+            }
+            
+            /* Для Safari на iOS - естественные пропорции */
+            .pdf-embed[src*=".pdf"] {
+                width: 100%;
+                height: 100vh;
+                object-fit: none;
+                object-position: top left;
+                min-width: 100%;
+                max-width: none;
+            }
+            
+            /* Дополнительные стили для object элементов */
+            .pdf-embed[type="application/pdf"] {
+                width: 100%;
+                height: 100vh;
+                object-fit: none;
+                object-position: top left;
+                min-width: 100%;
+                max-width: none;
+            }
+        }
+        
+        /* Стили для fallback сообщения */
+        .pdf-container p {
+            text-align: center;
+            padding: 20px;
+            color: #b0b0b0;
+            font-size: 16px;
+        }
+        
+        .pdf-container a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .pdf-container a:hover {
+            text-decoration: underline;
+        }
+
+        .language-switcher {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.95);
+            color: #4a90e2;
+            border: 2px solid #4a90e2;
+            padding: 8px 16px;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(74, 144, 226, 0.2);
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        .lang-btn.active {
+            background: #4a90e2;
+            color: white;
+            border-color: #4a90e2;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+        }
+
+        .lang-btn:hover {
+            background: #4a90e2;
+            color: white;
+            border-color: #4a90e2;
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.3);
+        }
+
+        .download-section {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border: 2px solid #4a90e2;
+            border-radius: 14px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.4);
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        .download-btn:hover {
+            background: #357abd;
+            color: white;
+            border-color: #357abd;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(74, 144, 226, 0.5);
+        }
+
+        .navigation {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .nav-link {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
+        }
+
+        .nav-link:hover {
+            background: white;
+            color: #000;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-icon {
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .safari-buttons {
+            top: 20px;
+        }
+
+        @media (max-width: 768px), (max-height: 768px) {
+            .pdf-container {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #ffffff;
+                aspect-ratio: 210 / 297;
+                max-width: 100vw;
+                max-height: 100vh;
+                margin: auto;
+            }
+
+            #pdf-embed-element {
+                width: 100%;
+                height: 100%;
+                margin: auto;
+                object-fit: contain;
+                border: none;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                background: #fff;
+            }
+
+            .language-switcher {
+                top: auto;
+                bottom: 20px;
+                left: 10px;
+                flex-direction: row;
+                gap: 8px;
+            }
+
+            .download-section {
+                bottom: 20px;
+                right: 10px;
+            }
+
+            .lang-btn, .nav-link, .download-btn {
+                font-size: 18px;
+                padding: 16px 20px;
+            }
+
+            .navigation {
+                display: none !important;
+            }
+
+            .safari-buttons {
+                top: auto;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .pdf-container {
+                height: 100vh;
+                width: auto;
+                position: relative;
+                margin: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: #ffffff;
+                aspect-ratio: initial;
+                max-width: none;
+                max-height: none;
+                margin: none;
+            }
+
+            #pdf-embed-element {
+                width: 100%;
+                height: 100%;
+                margin: auto;
+                object-fit: contain;
+                border: none;
+                box-shadow: 0 0 10px rgba(0,0,0,0.2);
+                background: #fff;
+            }
+        }
+
+        /* iOS Safari оптимизации */
+        @supports (-webkit-touch-callout: none) {
+            .pdf-container {
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .lang-btn, .nav-link, .download-btn {
+                min-height: 44px; /* Минимальная высота для touch targets */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            .nav-link {
+                min-height: 44px;
+            }
+        }
+
+        /* iPhone X и новее - безопасная зона */
+        @supports (padding: max(0px)) {
+            .language-switcher {
+                left: max(20px, env(safe-area-inset-left));
+            }
+            
+            .navigation {
+                right: max(20px, env(safe-area-inset-right));
+            }
+            
+            .download-btn {
+                bottom: max(20px, env(safe-area-inset-bottom));
+                right: max(20px, env(safe-area-inset-right));
+            }
+        }
+    </style>
 </head>
+<body>
+    <div class="pdf-container" id="pdf-container">
+        <!-- PDF элементы будут создаваться динамически -->
+    </div>
 
-<body class="body">
-    <header class="header-fullsize">
-        <div class="header-container">
-            <a class="header-logo" href="/">
-                <img class="header-logo-image" src="/images/site-icon.png" alt="AllSpares">
-            </a>
-            <div class="search-panel">
-                <button class="catalog-button" onclick="transformCatalogButton();showHideDropdownMenu()">
-                    <div class="catalog-button-container">
-                        <div class="bar1 catalog-button-bar"></div>
-                        <div class="bar2 catalog-button-bar"></div>
-                        <div class="bar3 catalog-button-bar"></div>
-                    </div>
-                </button>
-                <ul class="catalog-dropdown-menu">
-                    <li><a class="catalog-dropdown-item catalog-dropdown-item-large" href="/catalog/catalog.html">Каталог</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=disks">Диски</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=tires">Шины</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=filters">Фильтры</a></li>
-                </ul>
-                <form action="/catalog/autoparts.html" class="search-from" method="get">
-                    <input type="search" class="search-form-input" id="search-form-input-1" name="searchQuery" placeholder="Поиск по номеру детали" spellcheck="false" autocomplete="off">
-                    <button type="submit" class="search-form-submit">
-                        <p>Найти</p>
-                    </button>
-                </form>
-            </div>
-            <a class="cart-link" href="/cart/cart.html">
-                <img class="cart-link-icon" src="/images/cart.png">
-                <p>Корзина</p>
-                <div class="cart-link-counter">1</div>
-            </a>
-        </div>
-    </header>
-    <header class="header-tablet">
-        <div class="header-container">
-            <a class="header-logo" href="/">
-                <img class="header-logo-image" src="/images/site-icon.png" alt="AllSpares">
-            </a>
-            <div class="search-panel">
-                <form action="/catalog/autoparts.html" class="search-from" method="get">
-                    <input type="search" class="search-form-input" id="search-form-input-2" name="searchQuery" placeholder="Поиск по номеру детали" spellcheck="false" autocomplete="off">
-                    <button type="submit" class="search-form-submit">
-                        <p>Найти</p>
-                    </button>
-                </form>
-            </div>
-            <button class="catalog-button catalog-button-mobile"
-                onclick="transformCatalogButton();showHideDropdownMenu()">
-                <div class="catalog-button-container">
-                    <div class="bar1 catalog-button-bar catalog-button-bar-mobile"></div>
-                    <div class="bar2 catalog-button-bar catalog-button-bar-mobile"></div>
-                    <div class="bar3 catalog-button-bar catalog-button-bar-mobile"></div>
-                </div>
-            </button>
-            <ul class="catalog-dropdown-menu catalog-dropdown-menu-tablet">
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-large catalog-dropdown-item-mobile"
-                        href="/catalog/catalog.html">Каталог</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=disks">Диски</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=tires">Шины</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=filters">Фильтры</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/cart/cart.html">
-                        <img class="cart-link-icon" src="/images/cart.png">
-                        <p>Корзина</p>
-                        <div class="cart-link-counter cart-link-counter-tablet">1</div>
-                    </a></li>
-            </ul>
-        </div>
-    </header>
-    <header class="header-mobile">
-        <div class="header-container">
-            <a class="header-logo" href="/">
-                <img class="header-logo-image" src="/images/site-icon.png" alt="AllSpares">
-            </a>
-            <button class="catalog-button catalog-button-mobile"
-                onclick="transformCatalogButton();showHideDropdownMenu()">
-                <div class="catalog-button-container">
-                    <div class="bar1 catalog-button-bar catalog-button-bar-mobile"></div>
-                    <div class="bar2 catalog-button-bar catalog-button-bar-mobile"></div>
-                    <div class="bar3 catalog-button-bar catalog-button-bar-mobile"></div>
-                </div>
-            </button>
-            <ul class="catalog-dropdown-menu catalog-dropdown-menu-mobile">
-                <li class="catalog-dropdown-menu-mobile-li">
-                    <div class="search-panel">
-                        <form action="/catalog/autoparts.html" class="search-from" method="get">
-                            <input type="search" class="search-form-input" id="search-form-input-3" name="searchQuery" placeholder="Поиск по номеру детали" spellcheck="false" autocomplete="off">
-                            <button type="submit" class="search-form-submit">
-                                <p>Найти</p>
-                            </button>
-                        </form>
-                    </div>
-                </li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-large catalog-dropdown-item-mobile" href="/catalog/catalog.html">Каталог</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=disks">Диски</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=tires">Шины</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=filters">Фильтры</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/cart/cart.html">
-                        <img class="cart-link-icon" src="/images/cart.png">
-                        <p>Корзина</p>
-                        <div class="cart-link-counter cart-link-counter-tablet">1</div>
-                </a></li>
-            </ul>
-        </div>
-    </header>
-    <main class="main">
-        <div class="main-container">
-            <section class="winter-period-section page-section">
-                <h3 class="header-large-label">Актуально в зимний период</h3>
-                <div class="winter-period-content">
-                    <div class="winter-period-info">
-                        <h3 class="header-large-label item-header-white">Подготовьте свою машину к зиме</h3>
-                        <a href="/catalog/autoparts.html?category=winter" class="winter-period-more-link">Перейти в каталог</a>
-                    </div>
-                    <div class="winter-period-products">
-                        <a href="/catalog/autoparts.html?category=windshieldWashers" class="winter-period-products-item">
-                            <img class="winter-period-product-images" src="/photos/windshield_washer.png">
-                            <p class="product-winter-name">Стеклоомыватели</p>
-                        </a>
-                        <a href="/catalog/autoparts.html?category=tires" class="winter-period-products-item">
-                            <img class="winter-period-product-images" src="/photos/tire_winter.png">
-                            <p class="product-winter-name">Шины</p>
-                        </a>
-                        <a href="/catalog/autoparts.html?category=accumulators" class="winter-period-products-item">
-                            <img class="winter-period-product-images" src="/photos/varta_battery.png">
-                            <p class="product-winter-name">Аккумуляторы</p>
-                        </a>
-                    </div>
-                </div>
-            </section>
-            <section class="auto-brands page-item">
-                <h3 class="header-label">Каталог автозапчастей</h3>
-                <div class="auto-brands-table">
-                    <button class="auto-brands-item" id="Acura" onclick="openCatalog(this.id);">
-                        Acura
-                    </button>
-                    <button class="auto-brands-item" id="Alfa Romeo" onclick="openCatalog(this.id);">
-                        Alfa Romeo
-                    </button>
-                    <button class="auto-brands-item" id="Audi" onclick="openCatalog(this.id);">
-                        Audi
-                    </button>
-                    <button class="auto-brands-item" id="Bentley" onclick="openCatalog(this.id);">
-                        Bentley
-                    </button>
-                    <button class="auto-brands-item" id="BMW" onclick="openCatalog(this.id);">
-                        BMW
-                    </button>
-                    <button class="auto-brands-item" id="Buick" onclick="openCatalog(this.id);">
-                        Buick
-                    </button>
-                    <button class="auto-brands-item" id="Cadillac" onclick="openCatalog(this.id);">
-                        Cadillac
-                    </button>
-                    <button class="auto-brands-item" id="Chery" onclick="openCatalog(this.id);">
-                        Chery
-                    </button>
-                    <button class="auto-brands-item" id="Chevrolet" onclick="openCatalog(this.id);">
-                        Chevrolet
-                    </button>
-                    <button class="auto-brands-item" id="Chrysler" onclick="openCatalog(this.id);">
-                        Chrysler
-                    </button>
-                    <button class="auto-brands-item" id="Citroën" onclick="openCatalog(this.id);">
-                        Citroën
-                    </button>
-                    <button class="auto-brands-item" id="Dacia" onclick="openCatalog(this.id);">
-                        Dacia
-                    </button>
-                    <button class="auto-brands-item" id="Daewoo" onclick="openCatalog(this.id);">
-                        Daewoo
-                    </button>
-                    <button class="auto-brands-item" id="Daf" onclick="openCatalog(this.id);">
-                        Daf
-                    </button>
-                    <button class="auto-brands-item" id="Daimler" onclick="openCatalog(this.id);">
-                        Daimler
-                    </button>
-                    <button class="auto-brands-item" id="Datsun" onclick="openCatalog(this.id);">
-                        Datsun
-                    </button>
-                    <button class="auto-brands-item" id="Dodge" onclick="openCatalog(this.id);">
-                        Dodge
-                    </button>
-                    <button class="auto-brands-item" id="Fiat" onclick="openCatalog(this.id);">
-                        Fiat
-                    </button>
-                    <button class="auto-brands-item" id="Ford" onclick="openCatalog(this.id);">
-                        Ford
-                    </button>
-                    <button class="auto-brands-item" id="Gaz" onclick="openCatalog(this.id);">
-                        Gaz
-                    </button>
-                    <button class="auto-brands-item" id="Geely" onclick="openCatalog(this.id);">
-                        Geely
-                    </button>
-                    <button class="auto-brands-item" id="Haval" onclick="openCatalog(this.id);">
-                        Haval
-                    </button>
-                    <button class="auto-brands-item" id="Honda" onclick="openCatalog(this.id);">
-                        Honda
-                    </button>
-                    <button class="auto-brands-item" id="Hyundai" onclick="openCatalog(this.id);">
-                        Hyundai
-                    </button>
-                    <button class="auto-brands-item" id="Infiniti" onclick="openCatalog(this.id);">
-                        Infiniti
-                    </button>
-                    <button class="auto-brands-item" id="Jac" onclick="openCatalog(this.id);">
-                        Jac
-                    </button>
-                    <button class="auto-brands-item" id="Jaguar" onclick="openCatalog(this.id);">
-                        Jaguar
-                    </button>
-                    <button class="auto-brands-item" id="Jeep" onclick="openCatalog(this.id);">
-                        Jeep
-                    </button>
-                    <button class="auto-brands-item" id="Kia" onclick="openCatalog(this.id);">
-                        Kia
-                    </button>
-                    <button class="auto-brands-item" id="Lada" onclick="openCatalog(this.id);">
-                        Lada
-                    </button>
-                    <button class="auto-brands-item" id="Lancia" onclick="openCatalog(this.id);">
-                        Lancia
-                    </button>
-                    <button class="auto-brands-item" id="Land Rover" onclick="openCatalog(this.id);">
-                        Land Rover
-                    </button>
-                    <button class="auto-brands-item" id="Lexus" onclick="openCatalog(this.id);">
-                        Lexus
-                    </button>
-                    <button class="auto-brands-item" id="Lifan" onclick="openCatalog(this.id);">
-                        Lifan
-                    </button>
-                    <button class="auto-brands-item" id="Mazda" onclick="openCatalog(this.id);">
-                        Mazda
-                    </button>
-                    <button class="auto-brands-item" id="Mercedes-Benz" onclick="openCatalog(this.id);">
-                        Mercedes-Benz
-                    </button>
-                    <button class="auto-brands-item" id="Mini" onclick="openCatalog(this.id);">
-                        Mini
-                    </button>
-                    <button class="auto-brands-item" id="Mitsubishi" onclick="openCatalog(this.id);">
-                        Mitsubishi
-                    </button>
-                    <button class="auto-brands-item" id="Nissan" onclick="openCatalog(this.id);">
-                        Nissan
-                    </button>
-                    <button class="auto-brands-item" id="Opel" onclick="openCatalog(this.id);">
-                        Opel
-                    </button>
-                    <button class="auto-brands-item" id="Peugeot" onclick="openCatalog(this.id);">
-                        Peugeot
-                    </button>
-                    <button class="auto-brands-item" id="Porsche" onclick="openCatalog(this.id);">
-                        Porsche
-                    </button>
-                    <button class="auto-brands-item" id="Renault" onclick="openCatalog(this.id);">
-                        Renault
-                    </button>
-                    <button class="auto-brands-item" id="Saab" onclick="openCatalog(this.id);">
-                        Saab
-                    </button>
-                    <button class="auto-brands-item" id="Seat" onclick="openCatalog(this.id);">
-                        Seat
-                    </button>
-                    <button class="auto-brands-item" id="Skoda" onclick="openCatalog(this.id);">
-                        Skoda
-                    </button>
-                    <button class="auto-brands-item" id="Smart" onclick="openCatalog(this.id);">
-                        Smart
-                    </button>
-                    <button class="auto-brands-item" id="SsangYong" onclick="openCatalog(this.id);">
-                        SsangYong
-                    </button>
-                    <button class="auto-brands-item" id="Subaru" onclick="openCatalog(this.id);">
-                        Subaru
-                    </button>
-                    <button class="auto-brands-item" id="Suzuki" onclick="openCatalog(this.id);">
-                        Suzuki
-                    </button>
-                    <button class="auto-brands-item" id="Tesla" onclick="openCatalog(this.id);">
-                        Tesla
-                    </button>
-                    <button class="auto-brands-item" id="Toyota" onclick="openCatalog(this.id);">
-                        Toyota
-                    </button>
-                    <button class="auto-brands-item" id="Uaz" onclick="openCatalog(this.id);">
-                        Uaz
-                    </button>
-                    <button class="auto-brands-item" id="Volvo" onclick="openCatalog(this.id);">
-                        Volvo
-                    </button>
-                    <button class="auto-brands-item" id="Volkswagen" onclick="openCatalog(this.id);">
-                        Volkswagen
-                    </button>
-                </div>
-            </section>
-            <section class="popular-products page-section">
-                <h3 class="header-large-label">Популярные товары</h3>
-                <div class="popular-products-table">
-                    <a class="product-card" href="/details/detail.html?detailCode=06J115403Q">
-                        <img class="product-card-image" src="photos/s-l1600.jpg" alt="Маслянный фильтр">
-                        <p class="product-card-coast">1 450 ₽</p>
-                        <p class="product-card-name">Маслянный фильтр</p>
-                        <p class="product-card-compatibility">VAG – 06J 115 403 Q</p>
-                    </a>
-                    <a class="product-card" href="/details/detail.html?detailCode=0242140523">
-                        <img class="product-card-image" src="photos/spark_plug.jpg" alt="">
-                        <p class="product-card-coast">1 100 ₽</p>
-                        <p class="product-card-name">Свеча зажигания</p>
-                        <p class="product-card-compatibility">Bosch – 0 242 140 523</p>
-                    </a>
-                    <a class="product-card" href="/details/detail.html?detailCode=2483710">
-                        <img class="product-card-image" src="photos/oil.jpg" alt="">
-                        <p class="product-card-coast">1 290 ₽</p>
-                        <p class="product-card-name">Масло моторное 5W-40</p>
-                        <p class="product-card-compatibility">G-Energy</p>
-                    </a>
-                    <a class="product-card" href="/details/detail.html?detailCode=NO138493">
-                        <img class="product-card-image" src="photos/drain_plug_gasket.jpg" alt="">
-                        <p class="product-card-coast">59 ₽</p>
-                        <p class="product-card-name">Прокладка сливной пробки</p>
-                        <p class="product-card-compatibility">VAG – N0138493</p>
-                    </a>
-                    <a class="product-card" href="/details/detail.html?detailCode=4K0698151">
-                        <img class="product-card-image" src="photos/front_brake_pads.jpg" alt="">
-                        <p class="product-card-coast">17 500 ₽</p>
-                        <p class="product-card-name">Тормозные колодки передние</p>
-                        <p class="product-card-compatibility">VAG – 4K0698151</p>
-                    </a>
-                    <a class="product-card" href="/details/detail.html?detailCode=B000750M1">
-                        <img class="product-card-image" src="photos/brake_fluid.jpg" alt="">
-                        <p class="product-card-coast">650 ₽</p>
-                        <p class="product-card-name">Тормозная жидкость DOT4</p>
-                        <p class="product-card-compatibility">VAG – B 000 750 M1</p>
-                    </a>
-                </div>
-            </section>
-        </div>
-    </main>
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-panel">
-                <ul class="footer-panel-item" id="0">
-                    <li class="footer-panel-h">Товары</li>
-                    <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=accumulators" class="footer-panel-label">Аккумуляторы</a>
-                    </li>
-                    <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=disks" class="footer-panel-label">Диски</a>
-                    </li>
-                    <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=tires" class="footer-panel-label">Шины</a>
-                    </li>
-                    <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=filters" class="footer-panel-label">Фильтры</a>
-                    </li>
-                </ul>
-                <ul class="footer-panel-item" id="1">
-                    <li class="footer-panel-h">Контакты</li>
-                    <li class="footer-panel-label">
-                        <span>Остаповский пр, д. 28</span>
-                    </li>
-                    <li class="footer-panel-label">
-                        <a href="tel:89005002020" class="footer-panel-label">+7 (900) 500-20-20</a>
-                    </li>
-                    <li class="footer-panel-label">
-                        <a href="mailto:allspares@gmail.com" class="footer-panel-label">allspares@gmail.com</a>
-                    </li>
-                    <li class="footer-panel-label">
-                        <span>Ежедневно 9:00–21:00</span>
-                    </li>
-                </ul>
-                <div class="footer-panel-item socials-panel" id="2">
-                    <a class="socials-link" href="https://vk.com/">
-                        <div class="socials-image">
-                            <img src="/images/vk.svg">
-                        </div>
-                    </a>
-                    <a class="socials-link" href="https://web.telegram.org/k/">
-                        <div class="socials-image">
-                            <img src="/images/telegram.svg">
-                        </div>
-                    </a>
-                    <a class="socials-link" href="https://www.youtube.com/">
-                        <div class="socials-image">
-                            <img src="/images/youtube.svg">
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="sub-footer-panel">
-                <p>&copy; 2023 Алексей Рубан, ИКБО-30-22. Все права защищены.</a></p>
-            </div>
-        </div>
-    </footer>
-    <script src="/scripts/main-page-onload.js"></script>
-    <script src="/scripts/catalog-button-transform.js"></script>
-    <script src="/scripts/show-hide-dropdown-menu.js"></script>
-    <script src="/scripts/hide_menu_on_click.js"></script>
-    <script src="/scripts/open-catalog.js"></script>
-    <script src="/cart/scripts/cart-content.js"></script>
-    <script src="/scripts/synchronize-search-inputs.js"></script>
-    <script src="/catalog/scripts/catalog-content.js"></script>
+    <div class="language-switcher">
+        <button class="lang-btn" data-lang="en" data-file="resume/Resume_Aleksey_Ruban_iOS_Developer.pdf">EN</button>
+        <button class="lang-btn active" data-lang="ru" data-file="resume/CV_Aleksey_Ruban_iOS_Developer.pdf">RU</button>
+    </div>
+
+    <div class="navigation">
+        <a href="https://www.linkedin.com/in/alekseyruban/" target="_blank" class="nav-link">
+            <img src="icons/linkedin-logo.png" alt="LinkedIn" class="nav-icon">
+            LinkedIn
+        </a>
+        <a href="https://github.com/aleksey-ruban" target="_blank" class="nav-link">
+            <img src="icons/github.png" alt="GitHub" class="nav-icon">
+            GitHub
+        </a>
+        <a href="mailto:alekseyiosdev@gmail.com" class="nav-link">
+            <img src="icons/email.png" alt="Email" class="nav-icon">
+            Email
+        </a>
+    </div>
+
+    <div class="download-section">
+        <a id="download-btn" href="resume/CV_Aleksey_Ruban_iOS_Developer.pdf" download class="download-btn">
+            📄 Скачать PDF
+        </a>
+    </div>
+
+    <script>
+        // Конфигурация файлов резюме
+        const resumeFiles = {
+            ru: 'resume/CV_Aleksey_Ruban_iOS_Developer.pdf',
+            en: 'resume/Resume_Aleksey_Ruban_iOS_Developer.pdf'
+        };
+
+        // Конфигурация переводов
+        const translations = {
+            ru: {
+                title: 'Алексей Рубан - Резюме',
+                linkedin: 'LinkedIn',
+                github: 'GitHub',
+                email: 'Email',
+                download: '📄 Скачать PDF',
+                fallbackText: 'Ваш браузер не поддерживает отображение PDF. ',
+                fallbackLink: 'Открыть PDF в новом окне'
+            },
+            en: {
+                title: 'Aleksey Ruban - Resume',
+                linkedin: 'LinkedIn',
+                github: 'GitHub',
+                email: 'Email',
+                download: '📄 Download PDF',
+                fallbackText: 'Your browser does not support PDF display. ',
+                fallbackLink: 'Open PDF in new window'
+            }
+        };
+
+        // Определение браузера
+        function isSafari() {
+            return navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chrome');
+        }
+        
+        function isFirefox() {
+            return navigator.userAgent.includes('Firefox');
+        }
+        
+        function isChrome() {
+            return navigator.userAgent.includes('Chrome') && !navigator.userAgent.includes('Edg');
+        }
+
+        // Получение параметра языка из URL
+        function getLanguageFromURL() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('lang') || 'en';
+        }
+
+        // Создание PDF элемента в зависимости от браузера
+        function createPDFElement() {
+            const container = document.getElementById('pdf-container');
+            
+            // Очищаем контейнер
+            container.innerHTML = '';
+            
+            let pdfElement;
+            
+            if (isChrome() || isFirefox()) {
+                // Для Chrome/Edge и Firefox создаем object
+                pdfElement = document.createElement('object');
+                pdfElement.className = 'pdf-embed';
+                pdfElement.type = 'application/pdf';
+                
+                // Добавляем fallback содержимое
+                const currentLang = getLanguageFromURL();
+                const fallbackText = document.createElement('p');
+                fallbackText.textContent = translations[currentLang].fallbackText;
+                
+                const fallbackLink = document.createElement('a');
+                fallbackLink.id = 'fallback-link';
+                fallbackLink.href = resumeFiles[currentLang];
+                fallbackLink.target = '_blank';
+                fallbackLink.textContent = translations[currentLang].fallbackLink;
+                
+                fallbackText.appendChild(fallbackLink);
+                pdfElement.appendChild(fallbackText);
+            } else if (isSafari()) {
+                // Для Safari создаем object для лучшего отображения на iOS
+                pdfElement = document.createElement('iframe');
+                pdfElement.className = 'pdf-embed';
+                pdfElement.src = resumeFiles[getLanguageFromURL()];
+                
+                // Добавляем fallback для Safari
+                const fallbackText = document.createElement('p');
+                fallbackText.textContent = translations[getLanguageFromURL()].fallbackText;
+                
+                const fallbackLink = document.createElement('a');
+                fallbackLink.id = 'fallback-link';
+                fallbackLink.href = resumeFiles[getLanguageFromURL()];
+                fallbackLink.target = '_blank';
+                fallbackLink.textContent = translations[getLanguageFromURL()].fallbackLink;
+                
+                fallbackText.appendChild(fallbackLink);
+                pdfElement.appendChild(fallbackText);
+            } else {
+                // Для других браузеров создаем iframe
+                pdfElement = document.createElement('iframe');
+                pdfElement.className = 'pdf-embed';
+            }
+            
+            pdfElement.id = 'pdf-embed-element';
+            container.appendChild(pdfElement);
+            
+            return pdfElement;
+        }
+
+        // Установка языка
+        function setLanguage(lang) {
+            const pdfElement = document.getElementById('pdf-embed-element');
+            const downloadBtn = document.getElementById('download-btn');
+            const fallbackLink = document.getElementById('fallback-link');
+            const langButtons = document.querySelectorAll('.lang-btn');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Добавляем временную метку для предотвращения кэширования
+            const timestamp = new Date().getTime();
+            const pdfUrl = `${resumeFiles[lang]}?t=${timestamp}`;
+            
+            if (pdfElement) {
+                if (isChrome() || isFirefox()) {
+                    // Для Chrome/Edge и Firefox используем data атрибут
+                    pdfElement.data = '';
+                    setTimeout(() => {
+                        pdfElement.data = pdfUrl;
+                    }, 10);
+                } else if (isSafari()) {
+                    // Для Safari используем data атрибут
+                    pdfElement.src = '';
+                    setTimeout(() => {
+                        pdfElement.src = pdfUrl;
+                    }, 10);
+                } else {
+                    // Для других браузеров используем src атрибут
+                    pdfElement.src = '';
+                    setTimeout(() => {
+                        pdfElement.src = pdfUrl;
+                    }, 10);
+                }
+            }
+            
+            // Обновляем fallback ссылку и текст
+            if (fallbackLink) {
+                fallbackLink.href = resumeFiles[lang];
+                fallbackLink.textContent = translations[lang].fallbackLink;
+                // Обновляем родительский элемент с текстом
+                const fallbackText = fallbackLink.parentElement;
+                if (fallbackText) {
+                    fallbackText.textContent = translations[lang].fallbackText;
+                    fallbackText.appendChild(fallbackLink);
+                }
+            }
+            
+            // Обновляем кнопку скачивания
+            downloadBtn.href = resumeFiles[lang];
+            downloadBtn.textContent = translations[lang].download;
+            
+            // Обновляем навигационные ссылки
+            navLinks.forEach((link, index) => {
+                const icon = link.querySelector('.nav-icon');
+                const textNode = link.childNodes[link.childNodes.length - 1];
+                
+                if (index === 0) { // LinkedIn
+                    textNode.textContent = translations[lang].linkedin;
+                } else if (index === 1) { // GitHub
+                    textNode.textContent = translations[lang].github;
+                } else if (index === 2) { // Email
+                    textNode.textContent = translations[lang].email;
+                }
+            });
+            
+            // Обновляем заголовок страницы
+            document.title = translations[lang].title;
+            
+            // Обновляем активную кнопку языка
+            langButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.lang === lang) {
+                    btn.classList.add('active');
+                }
+            });
+
+            // Обновляем URL без перезагрузки страницы
+            const url = new URL(window.location);
+            url.searchParams.set('lang', lang);
+            window.history.pushState({}, '', url);
+        }
+
+        // Обработчики событий
+        document.addEventListener('DOMContentLoaded', function() {
+            // Применяем стили для Safari (возвращаем кнопки в исходное положение)
+            if (isSafari()) {
+                const languageSwitcher = document.querySelector('.language-switcher');
+                const navigation = document.querySelector('.navigation');    
+                
+                if (languageSwitcher) {
+                languageSwitcher.classList.add('safari-buttons');
+                }
+                if (navigation) {
+                    navigation.classList.add('safari-buttons');
+                }
+            }
+            
+            // Создаем PDF элемент для текущего браузера
+            createPDFElement();
+            
+            const initialLang = getLanguageFromURL();
+            setLanguage(initialLang);
+
+            // Обработчики кликов по кнопкам языка
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    setLanguage(this.dataset.lang);
+                });
+            });
+        });
+
+        // Обработка навигации браузера (кнопки назад/вперед)
+        window.addEventListener('popstate', function() {
+            const lang = getLanguageFromURL();
+            setLanguage(lang);
+        });
+    </script>
 </body>
-
-</html>
+</html> 
