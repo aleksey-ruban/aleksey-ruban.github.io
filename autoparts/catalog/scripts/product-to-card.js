@@ -52,7 +52,7 @@ function minusButton(button, flag = true) {
 
 function buyOnClick(button) {
     increaseCart(button.getAttribute("detail-code"));
-    var url = "/cart/cart.html";
+    var url = "/autoparts/cart/cart.html";
     var queryString = '?detailCode=' + encodeURIComponent(button.getAttribute("detail-code"));
     window.location.href = url + queryString;
 }

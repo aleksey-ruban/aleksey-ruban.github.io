@@ -1,7 +1,7 @@
 "use strict";
 
 function openSelectedModelCatalog(entireCatalog = false) {
-    var url = "/catalog/autoparts.html";
+    var url = "/autoparts/catalog/autoparts.html";
     if (entireCatalog) {
         window.location.href = url;
     } else {

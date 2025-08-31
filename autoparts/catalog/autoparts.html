@@ -5,33 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Автозапчасти, каталог запчастей</title>
-    <link rel="apple-touch-icon" sizes="57x57" href="/favicons/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/favicons/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/favicons/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/favicons/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/favicons/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/favicons/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/favicons/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/favicons/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="/favicons/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="/favicons/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-    <link rel="manifest" href="/favicons/manifest.json">
+    <link rel="apple-touch-icon" sizes="57x57" href="/autoparts/favicons/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/autoparts/favicons/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/autoparts/favicons/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/autoparts/favicons/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/autoparts/favicons/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/autoparts/favicons/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/autoparts/favicons/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/autoparts/favicons/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/autoparts/favicons/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/autoparts/favicons/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/autoparts/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/autoparts/favicons/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/autoparts/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/autoparts/favicons/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/favicons/ms-icon-144x144.png">
+    <meta name="msapplication-TileImage" content="/autoparts/favicons/ms-icon-144x144.png">
     <meta name="theme-color" content="rgb(43, 43, 47)">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="format-detection" content="telephone=no">
-    <link href="/style.css" rel="stylesheet">
+    <link href="/autoparts/style.css" rel="stylesheet">
 </head>
 
 <body class="body">
     <header class="header-fullsize">
         <div class="header-container">
-            <a class="header-logo" href="/">
-                <img class="header-logo-image" src="/images/site-icon.png" alt="AllSpares">
+            <a class="header-logo" href="/autoparts/">
+                <img class="header-logo-image" src="/autoparts/images/site-icon.png" alt="AllSpares">
             </a>
             <div class="search-panel">
                 <button class="catalog-button" onclick="transformCatalogButton();showHideDropdownMenu()">
@@ -42,21 +42,21 @@
                     </div>
                 </button>
                 <ul class="catalog-dropdown-menu">
-                    <li><a class="catalog-dropdown-item catalog-dropdown-item-large" href="/catalog/catalog.html">Каталог</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=disks">Диски</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=tires">Шины</a></li>
-                    <li><a class="catalog-dropdown-item" href="/catalog/autoparts.html?category=filters">Фильтры</a></li>
+                    <li><a class="catalog-dropdown-item catalog-dropdown-item-large" href="/autoparts/catalog/catalog.html">Каталог</a></li>
+                    <li><a class="catalog-dropdown-item" href="/autoparts/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
+                    <li><a class="catalog-dropdown-item" href="/autoparts/catalog/autoparts.html?category=disks">Диски</a></li>
+                    <li><a class="catalog-dropdown-item" href="/autoparts/catalog/autoparts.html?category=tires">Шины</a></li>
+                    <li><a class="catalog-dropdown-item" href="/autoparts/catalog/autoparts.html?category=filters">Фильтры</a></li>
                 </ul>
-                <form action="/catalog/autoparts.html" class="search-from" method="get">
+                <form action="/autoparts/catalog/autoparts.html" class="search-from" method="get">
                     <input type="search" class="search-form-input" id="search-form-input-1" name="searchQuery" placeholder="Поиск по номеру детали" spellcheck="false" autocomplete="off">
                     <button type="submit" class="search-form-submit">
                         <p>Найти</p>
                     </button>
                 </form>
             </div>
-            <a class="cart-link" href="/cart/cart.html">
-                <img class="cart-link-icon" src="/images/cart.png">
+            <a class="cart-link" href="/autoparts/cart/cart.html">
+                <img class="cart-link-icon" src="/autoparts/images/cart.png">
                 <p>Корзина</p>
                 <div class="cart-link-counter">1</div>
             </a>
@@ -64,11 +64,11 @@
     </header>
     <header class="header-tablet">
         <div class="header-container">
-            <a class="header-logo" href="/">
-                <img class="header-logo-image" src="/images/site-icon.png" alt="AllSpares">
+            <a class="header-logo" href="/autoparts/">
+                <img class="header-logo-image" src="/autoparts/images/site-icon.png" alt="AllSpares">
             </a>
             <div class="search-panel">
-                <form action="/catalog/autoparts.html" class="search-from" method="get">
+                <form action="/autoparts/catalog/autoparts.html" class="search-from" method="get">
                     <input type="search" class="search-form-input" id="search-form-input-2" name="searchQuery" placeholder="Поиск по номеру детали" spellcheck="false" autocomplete="off">
                     <button type="submit" class="search-form-submit">
                         <p>Найти</p>
@@ -85,13 +85,13 @@
             </button>
             <ul class="catalog-dropdown-menu catalog-dropdown-menu-tablet">
                 <li><a class="catalog-dropdown-item catalog-dropdown-item-large catalog-dropdown-item-mobile"
-                        href="/catalog/catalog.html">Каталог</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=disks">Диски</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=tires">Шины</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=filters">Фильтры</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/cart/cart.html">
-                        <img class="cart-link-icon" src="/images/cart.png">
+                        href="/autoparts/catalog/catalog.html">Каталог</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=disks">Диски</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=tires">Шины</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=filters">Фильтры</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/cart/cart.html">
+                        <img class="cart-link-icon" src="/autoparts/images/cart.png">
                         <p>Корзина</p>
                         <div class="cart-link-counter cart-link-counter-tablet">1</div>
                     </a></li>
@@ -100,8 +100,8 @@
     </header>
     <header class="header-mobile">
         <div class="header-container">
-            <a class="header-logo" href="/">
-                <img class="header-logo-image" src="/images/site-icon.png" alt="AllSpares">
+            <a class="header-logo" href="/autoparts/">
+                <img class="header-logo-image" src="/autoparts/images/site-icon.png" alt="AllSpares">
             </a>
             <button class="catalog-button catalog-button-mobile"
                 onclick="transformCatalogButton();showHideDropdownMenu()">
@@ -114,7 +114,7 @@
             <ul class="catalog-dropdown-menu catalog-dropdown-menu-mobile">
                 <li class="catalog-dropdown-menu-mobile-li">
                     <div class="search-panel">
-                        <form action="/catalog/autoparts.html" class="search-from" method="get">
+                        <form action="/autoparts/catalog/autoparts.html" class="search-from" method="get">
                             <input type="search" class="search-form-input" id="search-form-input-3" name="searchQuery" placeholder="Поиск по номеру детали" spellcheck="false" autocomplete="off">
                             <button type="submit" class="search-form-submit">
                                 <p>Найти</p>
@@ -122,13 +122,13 @@
                         </form>
                     </div>
                 </li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-large catalog-dropdown-item-mobile" href="/catalog/catalog.html">Каталог</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=disks">Диски</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=tires">Шины</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/catalog/autoparts.html?category=filters">Фильтры</a></li>
-                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/cart/cart.html">
-                        <img class="cart-link-icon" src="/images/cart.png">
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-large catalog-dropdown-item-mobile" href="/autoparts/catalog/catalog.html">Каталог</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=accumulators">Аккумуляторы</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=disks">Диски</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=tires">Шины</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/catalog/autoparts.html?category=filters">Фильтры</a></li>
+                <li><a class="catalog-dropdown-item catalog-dropdown-item-mobile" href="/autoparts/cart/cart.html">
+                        <img class="cart-link-icon" src="/autoparts/images/cart.png">
                         <p>Корзина</p>
                         <div class="cart-link-counter cart-link-counter-tablet">1</div>
                 </a></li>
@@ -142,51 +142,51 @@
                 <h3 class="another-categories-label">Другие категории</h3>
                 <div class="another-categories-list">
                     <button class="another-category" onclick="loadData(this.id);" id="accumulators">
-                        <img class="catagory-image" src="/images/battery-catagory.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/battery-catagory.png" alt="">
                         <span>Аккумуляторы</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="disks">
-                        <img class="catagory-image" src="/images/wheel.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/wheel.png" alt="">
                         <span>Диски</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="tires">
-                        <img class="catagory-image" src="/images/tire.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/tire.png" alt="">
                         <span>Шины</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="filters">
-                        <img class="catagory-image" src="/images/oil-filte.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/oil-filte.png" alt="">
                         <span>Фильтры</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="brakes">
-                        <img class="catagory-image" src="/images/brakes.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/brakes.png" alt="">
                         <span>Тормоза</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="engine">
-                        <img class="catagory-image" src="/images/engine.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/engine.png" alt="">
                         <span>Двигатель</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="windshieldWashers">
-                        <img class="catagory-image" src="/images/windscreen.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/windscreen.png" alt="">
                         <span>Стеклоомыватели</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="transmition">
-                        <img class="catagory-image" src="/images/transmission.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/transmission.png" alt="">
                         <span>Коробка</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="suspention">
-                        <img class="catagory-image" src="/images/suspension.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/suspension.png" alt="">
                         <span>Подвеска</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="cooling">
-                        <img class="catagory-image" src="/images/cooling.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/cooling.png" alt="">
                         <span>Охлаждение</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="electrician">
-                        <img class="catagory-image" src="/images/bulb.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/bulb.png" alt="">
                         <span>Электрика</span>
                     </button>
                     <button class="another-category" onclick="loadData(this.id);" id="car-body">
-                        <img class="catagory-image" src="/images/car.png" alt="">
+                        <img class="catagory-image" src="/autoparts/images/car.png" alt="">
                         <span>Кузов</span>
                     </button>
                 </div>
@@ -200,25 +200,25 @@
                 <div class="porducts-table main-porducts-table"></div>
                 <div class="catalog-product-card removed special-product-card-for-cloning" detail-code="">
                     <div class="product-card-link" onclick="openDetailPage(this.parentElement);">
-                        <img class="catalog-product-card-image" src="/photos/audi-silhouette.jpg" loading="eager">
+                        <img class="catalog-product-card-image" src="/autoparts/photos/audi-silhouette.jpg" loading="eager">
                         <p class="catalog-product-coast">520 ₽</p>
                         <p class="catalog-product-name">VAG - 06J 115 403 Q<br>Маслянный фильтр</p>
                     </div>
                     <p class="catalog-product-availability">В наличии: 400 шт.</p>
                     <p class="catalog-product-delivery">Доставка: 1 дн.</p>
                     <div class="product-stars">
-                        <img class="star" src="/images/star.png" loading="eager">
-                        <img class="star" src="/images/star.png" loading="eager">
-                        <img class="star" src="/images/star.png" loading="eager">
-                        <img class="star" src="/images/star.png" loading="eager">
-                        <img class="star" src="/images/star.png" loading="eager">
+                        <img class="star" src="/autoparts/images/star.png" loading="eager">
+                        <img class="star" src="/autoparts/images/star.png" loading="eager">
+                        <img class="star" src="/autoparts/images/star.png" loading="eager">
+                        <img class="star" src="/autoparts/images/star.png" loading="eager">
+                        <img class="star" src="/autoparts/images/star.png" loading="eager">
                     </div>
                     <div class="buy-buttons-container">
                         <button class="buy-button-cart" onclick="addToCart(this);">В корзину</button>
                         <button class="buy-button-onclick" onclick="buyOnClick(this);">Купить</button>
                     </div>
                     <div class="adjust-products-number removed">
-                        <a class="product-in-cart-button" href="/cart/cart.html">В корзине</a>
+                        <a class="product-in-cart-button" href="/autoparts/cart/cart.html">В корзине</a>
                         <button class="button-minus" onclick="minusButton(this);"></button>
                         <span>1</span>
                         <button class="button-plus" onclick="plusButton(this);"></button>
@@ -237,16 +237,16 @@
                 <ul class="footer-panel-item" id="0">
                     <li class="footer-panel-h">Товары</li>
                     <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=accumulators" class="footer-panel-label">Аккумуляторы</a>
+                        <a href="/autoparts/catalog/autoparts.html?category=accumulators" class="footer-panel-label">Аккумуляторы</a>
                     </li>
                     <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=disks" class="footer-panel-label">Диски</a>
+                        <a href="/autoparts/catalog/autoparts.html?category=disks" class="footer-panel-label">Диски</a>
                     </li>
                     <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=tires" class="footer-panel-label">Шины</a>
+                        <a href="/autoparts/catalog/autoparts.html?category=tires" class="footer-panel-label">Шины</a>
                     </li>
                     <li class="footer-panel-label">
-                        <a href="/catalog/autoparts.html?category=filters" class="footer-panel-label">Фильтры</a>
+                        <a href="/autoparts/catalog/autoparts.html?category=filters" class="footer-panel-label">Фильтры</a>
                     </li>
                 </ul>
                 <ul class="footer-panel-item" id="1">
@@ -267,17 +267,17 @@
                 <div class="footer-panel-item socials-panel" id="2">
                     <a class="socials-link" href="https://vk.com/">
                         <div class="socials-image">
-                            <img src="/images/vk.svg">
+                            <img src="/autoparts/images/vk.svg">
                         </div>
                     </a>
                     <a class="socials-link" href="https://web.telegram.org/k/">
                         <div class="socials-image">
-                            <img src="/images/telegram.svg">
+                            <img src="/autoparts/images/telegram.svg">
                         </div>
                     </a>
                     <a class="socials-link" href="https://www.youtube.com/">
                         <div class="socials-image">
-                            <img src="/images/youtube.svg">
+                            <img src="/autoparts/images/youtube.svg">
                         </div>
                     </a>
                 </div>
@@ -287,17 +287,17 @@
             </div>
         </div>
     </footer>
-    <script src="/scripts/main-page-onload.js"></script>
-    <script src="/scripts/catalog-button-transform.js"></script>
-    <script src="/scripts/show-hide-dropdown-menu.js"></script>
-    <script src="/scripts/hide_menu_on_click.js"></script>
-    <script src="/catalog/scripts/hide-categories.js"></script>
-    <script src="/catalog/scripts/autoparts-page-onload.js"></script>
-    <script src="/catalog/scripts/product-to-card.js"></script>
-    <script src="/cart/scripts/cart-content.js"></script>
-    <script src="/catalog/scripts/catalog-content.js"></script>
-    <script src="/scripts/synchronize-search-inputs.js"></script>
-    <script src="/scripts/open-detail-page.js"></script>
+    <script src="/autoparts/scripts/main-page-onload.js"></script>
+    <script src="/autoparts/scripts/catalog-button-transform.js"></script>
+    <script src="/autoparts/scripts/show-hide-dropdown-menu.js"></script>
+    <script src="/autoparts/scripts/hide_menu_on_click.js"></script>
+    <script src="/autoparts/catalog/scripts/hide-categories.js"></script>
+    <script src="/autoparts/catalog/scripts/autoparts-page-onload.js"></script>
+    <script src="/autoparts/catalog/scripts/product-to-card.js"></script>
+    <script src="/autoparts/cart/scripts/cart-content.js"></script>
+    <script src="/autoparts/catalog/scripts/catalog-content.js"></script>
+    <script src="/autoparts/scripts/synchronize-search-inputs.js"></script>
+    <script src="/autoparts/scripts/open-detail-page.js"></script>
 </body>
 
 </html>

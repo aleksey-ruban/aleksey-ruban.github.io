@@ -3,7 +3,7 @@
 ## О проекте
 **AllSpares** — это веб-приложение для магазина автозапчастей. Проект предоставляет удобный интерфейс для поиска, выбора и покупки автозапчастей.
 
-Сайт данного проекта доступен по ссылке: [https://aleksey-ruban.github.io](https://aleksey-ruban.github.io)
+Сайт данного проекта доступен по ссылке: [https://aleksey-ruban.github.io/autoparts/](https://aleksey-ruban.github.io/autoparts/)
 
 
 ## Функциональность

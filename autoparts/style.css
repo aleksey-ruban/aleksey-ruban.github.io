@@ -590,7 +590,7 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-image: url(/photos/audi_rs4_yellow_large.png);
+    background-image: url(/autoparts/photos/audi_rs4_yellow_large.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: calc(var(--border-radius-items) + 2px);
@@ -991,7 +991,7 @@
     width: 36px;
     border: none;
     border-radius: 8px;
-    background-image: url("/images/minus.svg");
+    background-image: url("/autoparts/images/minus.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 14px;
@@ -1006,7 +1006,7 @@
 }
 
 .button-plus {
-    background-image: url("/images/plus.svg");
+    background-image: url("/autoparts/images/plus.svg");
 }
 
 .adjust-products-number span {
@@ -1387,7 +1387,7 @@
     }
 
     .winter-period-content::before {
-        background-image: url(/photos/audi_rs4_yellow.png);
+        background-image: url(/autoparts/photos/audi_rs4_yellow.png);
         background-position: center;
     }
 
@@ -1665,7 +1665,7 @@
     }
 
     .winter-period-content::before {
-        background-image: url(/photos/audi_rs4_yellow.png);
+        background-image: url(/autoparts/photos/audi_rs4_yellow.png);
         background-position: center;
     }
 
@@ -1939,7 +1939,7 @@
     }
 
     .winter-period-content::before {
-        background-image: url(/photos/audi_rs4_yellow_large.png);
+        background-image: url(/autoparts/photos/audi_rs4_yellow_large.png);
         background-position: none;
     }
 
